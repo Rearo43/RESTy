@@ -1,7 +1,9 @@
+
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import './components/Form/form.scss'
+import './components/Header/header.scss'
 
 function App() {
   return (
@@ -29,10 +31,12 @@ function Form() {
       <input type="text"></input>
       <button type="submit">GO!</button>
       {"\n"}
-      <button type="radio" value="get">GET</button>
-      <button type="radio" value="post">POST</button>
-      <button type="radio" value="put">PUT</button>
-      <button type="radio" value="delete">DELETE</button>
+      <div class="radioButtons">
+        <button type="radio" value="get">GET</button>
+        <button type="radio" value="post">POST</button>
+        <button type="radio" value="put">PUT</button>
+        <button type="radio" value="delete">DELETE</button>
+      </div>
     </form>
   )
 }
