@@ -1,5 +1,18 @@
+header {
+    background-image: linear-gradient(
+        to bottom right, 
+        rgb(12, 127, 180) 30%,
+        rgb(10, 84, 119));
+}
+
 h1, h3 {
     font-family: 'Solway', serif;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1 {
+    font-size: 55px;
 }
 
 

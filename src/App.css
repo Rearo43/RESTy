@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Solway&display=swap');
+@import './components/Form/form.scss';
+@import './components/Header/header.scss';
 
 .App {
   text-align: center;
