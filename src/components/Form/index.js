@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import './form.scss';
+
 function Form(props) {
   const [req, setReq] = useState({});
 
@@ -22,7 +24,7 @@ function Form(props) {
     setReq({ ...req, method });
   };
 
-  const onRes = (event) => {
+  const onReq = (event) => {
     try {
       let data = JSON.parse(event.target.value);
 
@@ -35,12 +37,25 @@ function Form(props) {
   const onGoClick = async (event) => {
     event.preventDefault();
 
+    
     props.onForm(req);
+    console.log(props);
   };
 
   return (
     <>
-      <NavLink to='/history'>History</NavLink>
+      <section className='nav'>
+        <NavLink
+          to='/history'
+          style={{
+            textDecoration: 'none',
+            color: 'white',
+            fontFamily: 'Solway, serif',
+          }}
+        >
+          History
+        </NavLink>
+      </section>
 
       <form className='Form' onSubmit={onGoClick}>
         <label>URL</label>
@@ -67,7 +82,7 @@ function Form(props) {
           </button>
         </div>
 
-        <textarea onChange={onRes} />
+        <textarea onChange={onReq} />
       </form>
     </>
   );
