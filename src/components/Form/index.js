@@ -24,7 +24,7 @@ function Form(props) {
     setReq({ ...req, method });
   };
 
-  const onRes = (event) => {
+  const onReq = (event) => {
     try {
       let data = JSON.parse(event.target.value);
 
@@ -37,7 +37,9 @@ function Form(props) {
   const onGoClick = async (event) => {
     event.preventDefault();
 
+    
     props.onForm(req);
+    console.log(props);
   };
 
   return (
@@ -80,7 +82,7 @@ function Form(props) {
           </button>
         </div>
 
-        <textarea onChange={onRes} />
+        <textarea onChange={onReq} />
       </form>
     </>
   );

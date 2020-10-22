@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Form from './components/Form';
 import Response from './components/Response';
 import History from './components/History';
+import HistRes from './components/HistRes'
 
 class App extends React.Component {
   constructor(props) {
@@ -77,6 +78,11 @@ class App extends React.Component {
               </Route>
               <Route exact path='/history'>
                 <History calls={this.state.history} />
+                <HistRes
+                  headers={this.state.headers}
+                  loading={this.state.loading}
+                  results={this.state.results}
+                />
               </Route>
             </Switch>
           </section>
