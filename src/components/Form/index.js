@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import './form.scss';
+
 function Form(props) {
   const [req, setReq] = useState({});
 
@@ -40,7 +42,18 @@ function Form(props) {
 
   return (
     <>
-      <NavLink to='/history'>History</NavLink>
+      <section className='nav'>
+        <NavLink
+          to='/history'
+          style={{
+            textDecoration: 'none',
+            color: 'white',
+            fontFamily: 'Solway, serif',
+          }}
+        >
+          History
+        </NavLink>
+      </section>
 
       <form className='Form' onSubmit={onGoClick}>
         <label>URL</label>

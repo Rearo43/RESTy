@@ -17,8 +17,6 @@ function splitRes(props) {
     return (
       <>
         <h3>
-          To try ReSTy please ender URL.
-          <br></br>
           <small>
             <small>
               <em>Test URL: https://pokeapi.co/api/v2/pokemon</em>
@@ -29,7 +27,7 @@ function splitRes(props) {
           <small>
             <small>
               <h5>
-                If this has already been done and this message persists,
+                If you've already tried your URL and this message persists,
                 <br></br>
                 please check the validity of your URL.
               </h5>
