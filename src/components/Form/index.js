@@ -1,55 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
-class Form extends React.Component {
+function Form(props) {
+  const [req, setReq] = useState({});
 
-    constructor(props) {
-        super(props);
+  useEffect(() => {
+    const method = props.request.method || 'get';
+    const url = props.request.url;
+    const res = props.request.data;
 
-        this.state = {
-            method: '',
-            url: '',
-        }
+    setReq({ method, url, res });
+  }, [props, setReq]);
+
+  const onURL = (event) => {
+    let url = event.target.value;
+
+    setReq({ ...req, url });
+  };
+
+  const onMethod = (method) => {
+    setReq({ ...req, method });
+  };
+
+  const onRes = (event) => {
+    try {
+      let data = JSON.parse(event.target.value);
+
+      setReq({ ...req, data });
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-    onMethod = function(event) {
-        event.preventDefault();
-        let method = event.target.value;
+  const onGoClick = async (event) => {
+    event.preventDefault();
 
-        console.log(method);
-        this.setState({method});
-    }
+    props.onForm(req);
+  };
 
-    onURL = function(event) {
-        let url = event.target.value;
+  return (
+    <>
+      <NavLink to='/history'>History</NavLink>
 
-        console.log(url);
-        this.setState({url});
-    }
+      <form className='Form' onSubmit={onGoClick}>
+        <label>URL</label>
+        <input type='text' onChange={onURL}></input>
 
-    onsubmit = function(event) {
-        event.preventDefault();
-        let url = this.state.url;
-        console.log(url);      
-        this.setState({url});
-    }
+        <button>GO!</button>
 
-    render() {
-        return (
-            <form className="Form">
-                <label>URL</label>
-                <input type="text" value="url" onChange={this.onURL}></input>
-                <button type="submit" onClick={this.onsubmit}>GO!</button>
-                <div className="radioButtons">
-                    <button type="radio" value="get" onChange={this.onMethod}>GET</button>
-                    <button type="radio" value="post" onChange={this.onMethod}>POST</button>
-                    <button type="radio" value="put" onChange={this.onMethod}>PUT</button>
-                    <button type="radio" value="delete" onChange={this.onMethod}>DELETE</button>
-                </div>
-            </form>
-        )
-    }
+        <div className='radioButtons'>
+          <button type='radio' value='get' onChange={() => onMethod('get')}>
+            GET
+          </button>
+          <button type='radio' value='post' onChange={() => onMethod('post')}>
+            POST
+          </button>
+          <button type='radio' value='put' onChange={() => onMethod('put')}>
+            PUT
+          </button>
+          <button
+            type='radio'
+            value='delete'
+            onChange={() => onMethod('delete')}
+          >
+            DELETE
+          </button>
+        </div>
+
+        <textarea onChange={onRes} />
+      </form>
+    </>
+  );
 }
 
-
-
-  export default Form;
+export default Form;
