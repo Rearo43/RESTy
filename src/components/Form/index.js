@@ -38,7 +38,7 @@ class Form extends React.Component {
             <form className="Form">
                 <label>URL</label>
                 <input type="text" value="url" onChange={this.onURL}></input>
-                <button type="submit" onSubmit={this.onsubmit}>GO!</button>
+                <button type="submit" onClick={this.onsubmit}>GO!</button>
                 <div className="radioButtons">
                     <button type="radio" value="get" onChange={this.onMethod}>GET</button>
                     <button type="radio" value="post" onChange={this.onMethod}>POST</button>
