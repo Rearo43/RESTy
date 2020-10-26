@@ -1,0 +1,27 @@
+.history {
+    background-color: grey;
+    height: 375px;
+    color: aliceblue;
+    overflow: scroll;
+    flex-wrap: wrap;
+}
+
+.nav {
+background-color: rgb(12, 127, 180);
+  color: aliceblue;
+}
+
+.card {
+  background-color: rgb(12, 127, 180);
+  box-shadow: 5px 5px 8px rgb(189, 181, 181);
+  color: aliceblue;
+  font-family: 'Solway', serif;
+  font-size: 15px;
+  font-weight: 600;
+  height: 45px;
+  width: 400px;
+  margin: 20px;
+  margin-top: 40px;
+  margin-bottom: 17px;
+  overflow: scroll;
+}
